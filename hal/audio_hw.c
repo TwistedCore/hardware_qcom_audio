@@ -1370,7 +1370,7 @@ static void *offload_thread_loop(void *context)
     out->offload_state = OFFLOAD_STATE_IDLE;
     out->playback_started = 0;
 
-    setpriority(PRIO_PROCESS, 0, ANDROID_PRIORITY_AUDIO);
+    setpriority(PRIO_PROCESS, 0, ANDROID_PRIORITY_REALTIME);
     set_sched_policy(0, SP_FOREGROUND);
     prctl(PR_SET_NAME, (unsigned long)"Offload Callback", 0, 0, 0);
 
